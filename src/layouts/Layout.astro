@@ -17,8 +17,16 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
 
+      if (savedTheme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+
+    <meta charset="UTF-8" />
+    
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -26,7 +34,10 @@ const {
 
     <meta name="description" content={description} />
 
-    <meta name="theme-color" content="#0B0F14" />
+    <meta
+      name="theme-color"
+      content="#0B0F14"
+    />
 
     <title>{title}</title>
   </head>

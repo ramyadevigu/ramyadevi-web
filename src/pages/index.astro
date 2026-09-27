@@ -9,9 +9,7 @@ import Layout from "../layouts/Layout.astro";
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
-
       <div class="hero-content">
-
         <div class="eyebrow">
           <span></span>
           DATA & DIGITAL SYSTEMS
@@ -38,7 +36,6 @@ import Layout from "../layouts/Layout.astro";
             Explore Courses
           </a>
         </div>
-
       </div>
 
       <div class="hero-visual">
@@ -54,15 +51,12 @@ import Layout from "../layouts/Layout.astro";
         <div class="data-point point-two"></div>
         <div class="data-point point-three"></div>
       </div>
-
     </div>
   </section>
-
 
   <!-- INTRO -->
   <section class="intro">
     <div class="container intro-grid">
-
       <div>
         <span class="section-label">WHAT WE BUILD</span>
 
@@ -77,15 +71,12 @@ import Layout from "../layouts/Layout.astro";
         and technical education, Ramya Devi focuses on building
         practical systems that turn ideas into useful technology.
       </p>
-
     </div>
   </section>
-
 
   <!-- THREE AREAS -->
   <section class="areas">
     <div class="container">
-
       <div class="section-heading">
         <span class="section-label">FOCUS AREAS</span>
 
@@ -93,7 +84,6 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="area-grid">
-
         <article class="area-card">
           <div class="card-number">01</div>
 
@@ -108,7 +98,6 @@ import Layout from "../layouts/Layout.astro";
             Explore technology →
           </a>
         </article>
-
 
         <article class="area-card featured">
           <div class="card-number">02</div>
@@ -125,7 +114,6 @@ import Layout from "../layouts/Layout.astro";
           </a>
         </article>
 
-
         <article class="area-card">
           <div class="card-number">03</div>
 
@@ -140,17 +128,13 @@ import Layout from "../layouts/Layout.astro";
             Explore learning →
           </a>
         </article>
-
       </div>
-
     </div>
   </section>
-
 
   <!-- CTA -->
   <section class="cta">
     <div class="container cta-inner">
-
       <div>
         <span class="section-label">RAMYA DEVI</span>
 
@@ -162,15 +146,14 @@ import Layout from "../layouts/Layout.astro";
       <a href="/products" class="button light">
         View Products →
       </a>
-
     </div>
   </section>
-
 </Layout>
 
-
 <style>
-  /* HERO */
+  /* =========================================
+     HERO
+     ========================================= */
 
   .hero {
     position: relative;
@@ -188,12 +171,17 @@ import Layout from "../layouts/Layout.astro";
         transparent 32%
       ),
       #ffffff;
+
+    transition: background 250ms ease;
   }
 
   .hero-grid {
     display: grid;
+
     grid-template-columns: 1.05fr 0.95fr;
+
     align-items: center;
+
     gap: 70px;
   }
 
@@ -204,12 +192,14 @@ import Layout from "../layouts/Layout.astro";
   .eyebrow {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     color: var(--royal-blue);
 
     font-size: 12px;
     font-weight: 700;
+
     letter-spacing: 0.16em;
   }
 
@@ -228,15 +218,22 @@ import Layout from "../layouts/Layout.astro";
     color: var(--black);
 
     font-size: clamp(48px, 6vw, 78px);
+
     line-height: 0.98;
+
     letter-spacing: -0.055em;
+
     font-weight: 750;
+
+    transition: color 200ms ease;
   }
 
   .gradient-text {
     background: var(--orbital-gradient);
+
     background-clip: text;
     -webkit-background-clip: text;
+
     color: transparent;
   }
 
@@ -248,23 +245,32 @@ import Layout from "../layouts/Layout.astro";
     color: var(--text-muted);
 
     font-size: 18px;
+
     line-height: 1.7;
   }
 
   .hero-actions {
     display: flex;
+
     gap: 14px;
 
     margin-top: 36px;
   }
 
+  /* =========================================
+     BUTTONS
+     ========================================= */
+
   .button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 12px;
 
     min-height: 48px;
+
     padding: 0 22px;
 
     border-radius: 8px;
@@ -272,12 +278,15 @@ import Layout from "../layouts/Layout.astro";
     text-decoration: none;
 
     font-size: 14px;
+
     font-weight: 650;
 
     transition:
       transform 180ms ease,
       box-shadow 180ms ease,
-      background 180ms ease;
+      background 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
   }
 
   .button:hover {
@@ -286,6 +295,7 @@ import Layout from "../layouts/Layout.astro";
 
   .button.primary {
     background: var(--royal-blue);
+
     color: white;
 
     box-shadow:
@@ -298,22 +308,27 @@ import Layout from "../layouts/Layout.astro";
 
   .button.secondary {
     border: 1px solid var(--border);
+
     background: white;
+
     color: var(--black);
   }
 
   .button.secondary:hover {
     border-color: var(--royal-blue);
+
     color: var(--royal-blue);
   }
 
-
-  /* HERO VISUAL */
+  /* =========================================
+     HERO VISUAL
+     ========================================= */
 
   .hero-visual {
     position: relative;
 
     width: min(100%, 520px);
+
     aspect-ratio: 1;
 
     margin: auto;
@@ -341,6 +356,7 @@ import Layout from "../layouts/Layout.astro";
 
   .orbital-three {
     inset: 20%;
+
     transform: rotate(90deg) scaleX(1.25);
 
     border-color: rgba(0, 174, 239, 0.18);
@@ -406,19 +422,25 @@ import Layout from "../layouts/Layout.astro";
     left: 25%;
   }
 
-
-  /* INTRO */
+  /* =========================================
+     INTRO
+     ========================================= */
 
   .intro {
     padding: 120px 0;
 
     background: var(--surface);
+
+    transition: background 250ms ease;
   }
 
   .intro-grid {
     display: grid;
+
     grid-template-columns: 1fr 0.8fr;
+
     gap: 100px;
+
     align-items: end;
   }
 
@@ -426,7 +448,9 @@ import Layout from "../layouts/Layout.astro";
     color: var(--royal-blue);
 
     font-size: 11px;
+
     font-weight: 700;
+
     letter-spacing: 0.15em;
   }
 
@@ -435,9 +459,15 @@ import Layout from "../layouts/Layout.astro";
   .cta h2 {
     margin: 16px 0 0;
 
+    color: var(--text);
+
     font-size: clamp(34px, 4vw, 54px);
+
     line-height: 1.05;
+
     letter-spacing: -0.04em;
+
+    transition: color 200ms ease;
   }
 
   .intro h2 span {
@@ -450,14 +480,20 @@ import Layout from "../layouts/Layout.astro";
     color: var(--text-muted);
 
     font-size: 17px;
+
     line-height: 1.8;
   }
 
-
-  /* AREAS */
+  /* =========================================
+     AREAS
+     ========================================= */
 
   .areas {
     padding: 120px 0;
+
+    background: var(--background);
+
+    transition: background 250ms ease;
   }
 
   .section-heading {
@@ -466,7 +502,9 @@ import Layout from "../layouts/Layout.astro";
 
   .area-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 20px;
   }
 
@@ -476,17 +514,20 @@ import Layout from "../layouts/Layout.astro";
     padding: 32px;
 
     border: 1px solid var(--border);
+
     border-radius: 14px;
 
     background: white;
 
     display: flex;
+
     flex-direction: column;
 
     transition:
       transform 200ms ease,
       border-color 200ms ease,
-      box-shadow 200ms ease;
+      box-shadow 200ms ease,
+      background 200ms ease;
   }
 
   .area-card:hover {
@@ -513,14 +554,19 @@ import Layout from "../layouts/Layout.astro";
     color: var(--royal-blue);
 
     font-size: 12px;
+
     font-weight: 700;
+
     letter-spacing: 0.1em;
   }
 
   .area-card h3 {
     margin: 55px 0 12px;
 
+    color: var(--text);
+
     font-size: 25px;
+
     letter-spacing: -0.025em;
   }
 
@@ -530,11 +576,13 @@ import Layout from "../layouts/Layout.astro";
     color: var(--text-muted);
 
     line-height: 1.7;
+
     font-size: 14px;
   }
 
   .area-card a {
     margin-top: auto;
+
     padding-top: 28px;
 
     color: var(--royal-blue);
@@ -542,23 +590,31 @@ import Layout from "../layouts/Layout.astro";
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 650;
   }
 
-
-  /* CTA */
+  /* =========================================
+     CTA
+     ========================================= */
 
   .cta {
     padding: 100px 0;
 
     background: var(--black);
+
     color: white;
+
+    transition: background 250ms ease;
   }
 
   .cta-inner {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 40px;
   }
 
@@ -568,10 +624,13 @@ import Layout from "../layouts/Layout.astro";
 
   .cta h2 {
     margin-top: 12px;
+
+    color: white;
   }
 
   .button.light {
     background: white;
+
     color: var(--black);
   }
 
@@ -579,8 +638,210 @@ import Layout from "../layouts/Layout.astro";
     color: var(--royal-blue);
   }
 
+  /* =========================================
+     DARK MODE
+     ========================================= */
 
-  /* RESPONSIVE */
+  :global(html[data-theme="dark"]) .hero {
+    background:
+      radial-gradient(
+        circle at 78% 45%,
+        rgba(0, 140, 255, 0.16),
+        transparent 30%
+      ),
+      linear-gradient(
+        135deg,
+        #080c12 0%,
+        #0c1521 48%,
+        #08111b 100%
+      );
+  }
+
+  :global(html[data-theme="dark"]) .hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        circle at 50% 100%,
+        rgba(0, 102, 255, 0.06),
+        transparent 35%
+      );
+  }
+
+  :global(html[data-theme="dark"]) .hero-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  :global(html[data-theme="dark"]) h1 {
+    color: var(--text);
+  }
+
+  :global(html[data-theme="dark"]) .hero-description {
+    color: var(--text-muted);
+  }
+
+  :global(html[data-theme="dark"]) .button.secondary {
+    background: #111923;
+
+    border-color: #303b49;
+
+    color: var(--text);
+  }
+
+  :global(html[data-theme="dark"]) .button.secondary:hover {
+    background: #142033;
+
+    border-color: var(--royal-blue);
+
+    color: var(--cyan-blue);
+  }
+
+  :global(html[data-theme="dark"]) .hero-visual {
+    filter: drop-shadow(
+      0 0 35px rgba(0, 102, 255, 0.08)
+    );
+  }
+
+  :global(html[data-theme="dark"]) .orbital {
+    border-color: rgba(0, 140, 255, 0.28);
+  }
+
+  :global(html[data-theme="dark"]) .orbital-three {
+    border-color: rgba(0, 174, 239, 0.30);
+  }
+
+  :global(html[data-theme="dark"]) .core {
+    box-shadow:
+      0 0 80px rgba(0, 140, 255, 0.30),
+      0 20px 60px rgba(0, 102, 255, 0.28);
+  }
+
+  :global(html[data-theme="dark"]) .core-inner {
+    background: #0b1119;
+  }
+
+  :global(html[data-theme="dark"]) .intro {
+    background:
+      linear-gradient(
+        135deg,
+        #0b1018 0%,
+        #101722 50%,
+        #0b1320 100%
+      );
+  }
+
+  :global(html[data-theme="dark"]) .intro h2,
+  :global(html[data-theme="dark"]) .section-heading h2 {
+    color: #f4f7fb;
+  }
+
+  :global(html[data-theme="dark"]) .intro h2 span {
+    color: #a8b4c3;
+  }
+
+  :global(html[data-theme="dark"]) .intro p {
+    color: #a8b4c3;
+  }
+
+  :global(html[data-theme="dark"]) .areas {
+    background:
+      linear-gradient(
+        135deg,
+        #070b10 0%,
+        #0c121a 48%,
+        #08111a 100%
+      );
+  }
+
+  :global(html[data-theme="dark"]) .area-card {
+    background:
+      linear-gradient(
+        145deg,
+        #111923 0%,
+        #0e151e 100%
+      );
+
+    border-color: rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+      0 10px 35px rgba(0, 0, 0, 0.18);
+  }
+
+  :global(html[data-theme="dark"]) .area-card:hover {
+    border-color: rgba(0, 140, 255, 0.45);
+
+    box-shadow:
+      0 20px 55px rgba(0, 0, 0, 0.35);
+  }
+
+  :global(html[data-theme="dark"]) .area-card.featured {
+    background:
+      linear-gradient(
+        145deg,
+        #102039 0%,
+        #0e1725 55%,
+        #0b1420 100%
+      );
+
+    border-color: rgba(0, 102, 255, 0.32);
+  }
+
+  :global(html[data-theme="dark"]) .area-card h3 {
+    color: #f4f7fb;
+  }
+
+  :global(html[data-theme="dark"]) .area-card p {
+    color: #9eabb9;
+  }
+
+  :global(html[data-theme="dark"]) .area-card a {
+    color: var(--cyan-blue);
+  }
+
+  :global(html[data-theme="dark"]) .cta {
+    background:
+      radial-gradient(
+        circle at 78% 50%,
+        rgba(0, 102, 255, 0.18),
+        transparent 30%
+      ),
+      linear-gradient(
+        135deg,
+        #070b10 0%,
+        #0d1723 50%,
+        #08111b 100%
+      );
+  }
+
+  :global(html[data-theme="dark"]) .cta h2 {
+    color: #f4f7fb;
+  }
+
+  :global(html[data-theme="dark"]) .button.light {
+    background: var(--royal-blue);
+
+    color: white;
+
+    box-shadow:
+      0 10px 30px rgba(0, 102, 255, 0.22);
+  }
+
+  :global(html[data-theme="dark"]) .button.light:hover {
+    background: #008cff;
+
+    color: white;
+  }
+
+  /* =========================================
+     RESPONSIVE
+     ========================================= */
 
   @media (max-width: 900px) {
     .hero-grid {
@@ -597,6 +858,7 @@ import Layout from "../layouts/Layout.astro";
 
     .intro-grid {
       grid-template-columns: 1fr;
+
       gap: 30px;
     }
 
@@ -636,6 +898,7 @@ import Layout from "../layouts/Layout.astro";
 
     .hero-visual {
       max-width: 350px;
+
       margin-bottom: 50px;
     }
 
@@ -650,6 +913,7 @@ import Layout from "../layouts/Layout.astro";
 
     .cta-inner {
       flex-direction: column;
+
       align-items: flex-start;
     }
   }
