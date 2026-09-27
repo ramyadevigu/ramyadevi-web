@@ -1,0 +1,99 @@
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div>
+      <div class="footer-brand">RAMYA DEVI</div>
+      <p>Data & Digital Systems</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="/products">Products</a>
+      <a href="/courses">Courses</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>
+      © {new Date().getFullYear()} Ramya Devi
+    </span>
+
+    <span>
+      Data & Digital Systems
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 100px;
+    background: var(--black);
+    color: white;
+  }
+
+  .footer-main {
+    padding-top: 64px;
+    padding-bottom: 56px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-main p {
+    margin: 8px 0 0;
+
+    color: #8d98a7;
+    font-size: 13px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .footer-links a {
+    color: #c3cad4;
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .footer-links a:hover {
+    color: var(--cyan-blue);
+  }
+
+  .footer-bottom {
+    padding-top: 18px;
+    padding-bottom: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #697585;
+    font-size: 12px;
+  }
+
+  @media (max-width: 700px) {
+    .footer-main {
+      flex-direction: column;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

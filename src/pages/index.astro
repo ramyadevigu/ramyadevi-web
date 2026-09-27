@@ -1,11 +1,656 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Ramya Devi | Data & Digital Systems"
+  description="Ramya Devi builds data-driven technologies, digital systems & products."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          <span></span>
+          DATA & DIGITAL SYSTEMS
+        </div>
+
+        <h1>
+          Building
+          <span class="gradient-text">intelligent</span>
+          systems for the digital world.
+        </h1>
+
+        <p class="hero-description">
+          Ramya Devi develops technology, digital products and
+          practical learning systems across data, AI and software.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/products" class="button primary">
+            Explore Products
+            <span>→</span>
+          </a>
+
+          <a href="/courses" class="button secondary">
+            Explore Courses
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+        <div class="orbital orbital-one"></div>
+        <div class="orbital orbital-two"></div>
+        <div class="orbital orbital-three"></div>
+
+        <div class="core">
+          <div class="core-inner"></div>
+        </div>
+
+        <div class="data-point point-one"></div>
+        <div class="data-point point-two"></div>
+        <div class="data-point point-three"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-grid">
+
+      <div>
+        <span class="section-label">WHAT WE BUILD</span>
+
+        <h2>
+          Technology that connects
+          <span>data, intelligence and products.</span>
+        </h2>
+      </div>
+
+      <p>
+        From AI and data-driven applications to digital products
+        and technical education, Ramya Devi focuses on building
+        practical systems that turn ideas into useful technology.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- THREE AREAS -->
+  <section class="areas">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-label">FOCUS AREAS</span>
+
+        <h2>Technology. Products. Learning.</h2>
+      </div>
+
+      <div class="area-grid">
+
+        <article class="area-card">
+          <div class="card-number">01</div>
+
+          <h3>Technology</h3>
+
+          <p>
+            Data science, artificial intelligence,
+            machine learning and modern software systems.
+          </p>
+
+          <a href="/courses">
+            Explore technology →
+          </a>
+        </article>
+
+
+        <article class="area-card featured">
+          <div class="card-number">02</div>
+
+          <h3>Products</h3>
+
+          <p>
+            Digital products designed to solve real-world
+            problems through thoughtful technology.
+          </p>
+
+          <a href="/products">
+            Explore products →
+          </a>
+        </article>
+
+
+        <article class="area-card">
+          <div class="card-number">03</div>
+
+          <h3>Learning</h3>
+
+          <p>
+            Practical courses, documentation and technical
+            resources for building modern systems.
+          </p>
+
+          <a href="/courses">
+            Explore learning →
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+
+      <div>
+        <span class="section-label">RAMYA DEVI</span>
+
+        <h2>
+          Explore the technology.
+        </h2>
+      </div>
+
+      <a href="/products" class="button light">
+        View Products →
+      </a>
+
+    </div>
+  </section>
+
 </Layout>
+
+
+<style>
+  /* HERO */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+      radial-gradient(
+        circle at 80% 45%,
+        rgba(0, 140, 255, 0.09),
+        transparent 32%
+      ),
+      #ffffff;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .hero-content {
+    padding: 80px 0;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--royal-blue);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+
+  .eyebrow span {
+    width: 28px;
+    height: 2px;
+
+    background: var(--orbital-gradient);
+  }
+
+  h1 {
+    max-width: 760px;
+
+    margin: 24px 0 0;
+
+    color: var(--black);
+
+    font-size: clamp(48px, 6vw, 78px);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    font-weight: 750;
+  }
+
+  .gradient-text {
+    background: var(--orbital-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .hero-description {
+    max-width: 600px;
+
+    margin: 30px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 36px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 48px;
+    padding: 0 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button.primary {
+    background: var(--royal-blue);
+    color: white;
+
+    box-shadow:
+      0 10px 28px rgba(0, 102, 255, 0.22);
+  }
+
+  .button.primary:hover {
+    background: #005bea;
+  }
+
+  .button.secondary {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--black);
+  }
+
+  .button.secondary:hover {
+    border-color: var(--royal-blue);
+    color: var(--royal-blue);
+  }
+
+
+  /* HERO VISUAL */
+
+  .hero-visual {
+    position: relative;
+
+    width: min(100%, 520px);
+    aspect-ratio: 1;
+
+    margin: auto;
+  }
+
+  .orbital {
+    position: absolute;
+
+    inset: 10%;
+
+    border: 1px solid rgba(0, 102, 255, 0.18);
+
+    border-radius: 50%;
+
+    transform: rotate(30deg);
+  }
+
+  .orbital-one {
+    transform: rotate(25deg) scaleX(1.45);
+  }
+
+  .orbital-two {
+    transform: rotate(-35deg) scaleX(1.45);
+  }
+
+  .orbital-three {
+    inset: 20%;
+    transform: rotate(90deg) scaleX(1.25);
+
+    border-color: rgba(0, 174, 239, 0.18);
+  }
+
+  .core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 130px;
+    height: 130px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: var(--orbital-gradient);
+
+    box-shadow:
+      0 0 70px rgba(0, 140, 255, 0.2),
+      0 20px 50px rgba(0, 102, 255, 0.2);
+  }
+
+  .core-inner {
+    position: absolute;
+
+    inset: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+  }
+
+  .data-point {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--cyan-blue);
+
+    box-shadow:
+      0 0 0 6px rgba(0, 174, 239, 0.08),
+      0 0 25px rgba(0, 174, 239, 0.35);
+  }
+
+  .point-one {
+    top: 20%;
+    left: 20%;
+  }
+
+  .point-two {
+    top: 25%;
+    right: 16%;
+  }
+
+  .point-three {
+    bottom: 20%;
+    left: 25%;
+  }
+
+
+  /* INTRO */
+
+  .intro {
+    padding: 120px 0;
+
+    background: var(--surface);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 100px;
+    align-items: end;
+  }
+
+  .section-label {
+    color: var(--royal-blue);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .intro h2,
+  .section-heading h2,
+  .cta h2 {
+    margin: 16px 0 0;
+
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .intro h2 span {
+    color: var(--text-muted);
+  }
+
+  .intro p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+
+  /* AREAS */
+
+  .areas {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 48px;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .area-card {
+    min-height: 330px;
+
+    padding: 32px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .area-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 102, 255, 0.3);
+
+    box-shadow:
+      0 20px 50px rgba(11, 15, 20, 0.08);
+  }
+
+  .area-card.featured {
+    background:
+      linear-gradient(
+        145deg,
+        #f4f8ff,
+        #ffffff
+      );
+
+    border-color: rgba(0, 102, 255, 0.22);
+  }
+
+  .card-number {
+    color: var(--royal-blue);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .area-card h3 {
+    margin: 55px 0 12px;
+
+    font-size: 25px;
+    letter-spacing: -0.025em;
+  }
+
+  .area-card p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  .area-card a {
+    margin-top: auto;
+    padding-top: 28px;
+
+    color: var(--royal-blue);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+
+  /* CTA */
+
+  .cta {
+    padding: 100px 0;
+
+    background: var(--black);
+    color: white;
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .cta .section-label {
+    color: var(--cyan-blue);
+  }
+
+  .cta h2 {
+    margin-top: 12px;
+  }
+
+  .button.light {
+    background: white;
+    color: var(--black);
+  }
+
+  .button.light:hover {
+    color: var(--royal-blue);
+  }
+
+
+  /* RESPONSIVE */
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+      padding-bottom: 20px;
+    }
+
+    .hero-visual {
+      max-width: 420px;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .area-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .area-card {
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-content {
+      padding: 70px 0 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .hero-visual {
+      max-width: 350px;
+      margin-bottom: 50px;
+    }
+
+    .intro,
+    .areas {
+      padding: 80px 0;
+    }
+
+    .cta {
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

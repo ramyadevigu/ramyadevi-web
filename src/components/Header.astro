@@ -1,0 +1,187 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Ramya Devi home">
+      RAMYA DEVI
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="/" class="active">Home</a>
+      <a href="/products">Products</a>
+      <a href="/courses">Courses</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+    </nav>
+
+    <a href="/contact" class="header-button">
+      Contact
+    </a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .header-inner {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .brand {
+    margin-right: auto;
+
+    color: transparent;
+    background: linear-gradient(
+      90deg,
+      #0066ff 0%,
+      #00aeef 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    font-family:
+      "Segoe UI Black",
+      "Segoe UI",
+      sans-serif;
+
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1;
+
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  nav a {
+    position: relative;
+
+    color: var(--black);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color 180ms ease;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--royal-blue);
+  }
+
+  nav a.active::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -29px;
+
+    height: 2px;
+    background: var(--royal-blue);
+  }
+
+  .header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    background: var(--black);
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+      transform 180ms ease,
+      background 180ms ease;
+  }
+
+  .header-button:hover {
+    background: var(--royal-blue);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      gap: 18px;
+    }
+
+    .header-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .header-inner {
+      min-height: 70px;
+
+      width: 100%;
+      padding: 0 16px;
+
+      gap: 20px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+
+    nav {
+      display: flex;
+
+      flex: 1;
+      min-width: 0;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      gap: 24px;
+
+      white-space: nowrap;
+
+      scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav a {
+      flex-shrink: 0;
+    }
+
+    nav a.active::after {
+      bottom: -25px;
+    }
+  }
+</style>

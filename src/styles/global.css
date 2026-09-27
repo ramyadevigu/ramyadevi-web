@@ -1,0 +1,128 @@
+:root {
+  /* Ramya Devi Brand */
+  --black: #0b0f14;
+  --royal-blue: #0066ff;
+  --azure-blue: #008cff;
+  --cyan-blue: #00aeef;
+
+  /* Gradient */
+  --orbital-gradient: linear-gradient(
+    110deg,
+    #0038b8 0%,
+    #0066ff 38%,
+    #008cff 70%,
+    #00aeef 100%
+  );
+
+  /* UI */
+  --background: #ffffff;
+  --surface: #f7f9fc;
+  --surface-blue: #f3f7ff;
+  --border: #e5e9f0;
+  --text: #0b0f14;
+  --text-muted: #5f6b7a;
+
+  --container-width: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: min(calc(100% - 48px), var(--container-width));
+  margin: 0 auto;
+}
+
+.brand {
+  font-family:
+    "Segoe UI Black",
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  color: transparent;
+
+  background: linear-gradient(
+    90deg,
+    #0066ff 0%,
+    #00aeef 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.footer-brand {
+  font-family:
+    "Segoe UI Black",
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1;
+
+  color: transparent;
+
+  background: linear-gradient(
+    90deg,
+    #0066ff 0%,
+    #00aeef 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.footer-main p {
+  margin: 10px 0 0;
+
+  color: #8d98a7;
+
+  font-size: 13px;
+}
+
+
+
+@media (max-width: 700px) {
+  .container {
+    width: min(calc(100% - 32px), var(--container-width));
+  }
+}
