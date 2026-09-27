@@ -23,7 +23,7 @@ const isActive = (path: string) => {
       RAMYA DEVI
     </a>
 
-    <nav aria-label="Main navigation">
+    <nav id="main-navigation" aria-label="Main navigation">
       <a
         href="/"
         class:list={{ active: isActive("/") }}
@@ -101,6 +101,19 @@ const isActive = (path: string) => {
         </svg>
       </button>
 
+      <button
+        id="mobile-nav-toggle"
+        class="mobile-nav-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+
       <!-- Contact -->
       <a href="/contact" class="header-button">
         Contact
@@ -153,6 +166,44 @@ const isActive = (path: string) => {
       }
 
       updateThemeButton();
+    });
+  }
+
+  const mobileNavToggle = document.querySelector(
+    "#mobile-nav-toggle"
+  ) as HTMLButtonElement | null;
+
+  const navigation = document.querySelector(
+    "#main-navigation"
+  );
+
+  if (mobileNavToggle && navigation) {
+    const setMenuOpen = (isOpen: boolean) => {
+      document.querySelector(".site-header")?.toggleAttribute(
+        "data-menu-open",
+        isOpen
+      );
+      mobileNavToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileNavToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    };
+
+    mobileNavToggle.addEventListener("click", () => {
+      setMenuOpen(mobileNavToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
     });
   }
 </script>
@@ -313,6 +364,35 @@ const isActive = (path: string) => {
       transform 180ms ease;
   }
 
+  .mobile-nav-toggle {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    cursor: pointer;
+  }
+
+  .mobile-nav-toggle svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+  }
+
   .theme-toggle:hover {
     border-color: var(--royal-blue);
 
@@ -406,7 +486,12 @@ const isActive = (path: string) => {
      ========================================= */
 
   @media (max-width: 700px) {
+    .site-header {
+      position: sticky;
+    }
+
     .header-inner {
+      position: relative;
       min-height: 70px;
 
       width: 100%;
@@ -423,35 +508,41 @@ const isActive = (path: string) => {
     }
 
     nav {
-      display: flex;
-
-      flex: 1;
-
-      min-width: 0;
-
-      overflow-x: auto;
-      overflow-y: hidden;
-
-      gap: 24px;
-
-      white-space: nowrap;
-
-      scrollbar-width: none;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 16px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--header-background);
+      box-shadow: 0 14px 24px rgba(11, 15, 20, 0.08);
     }
 
-    nav::-webkit-scrollbar {
-      display: none;
+    .site-header[data-menu-open] nav {
+      display: flex;
     }
 
     nav a {
-      flex-shrink: 0;
+      padding: 13px 0;
     }
 
     nav a.active::after {
-      bottom: -25px;
+      right: auto;
+      bottom: 7px;
+      width: 22px;
     }
 
     .theme-toggle {
+      flex-shrink: 0;
+    }
+
+    .mobile-nav-toggle {
+      display: inline-flex;
       flex-shrink: 0;
     }
   }
