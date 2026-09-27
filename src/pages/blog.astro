@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Card from "../components/Card.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+
+const posts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort(
+    (a, b) =>
+      b.data.publishDate.valueOf() -
+      a.data.publishDate.valueOf()
+  );
+---
+
+<Layout
+  title="Blog | Ramya Devi"
+  description="Technical articles about data, AI, software and digital products."
+>
+  <PageHero
+    eyebrow="BLOG"
+    title="Ideas, experiments and technical notes."
+    description="Articles covering data science, artificial intelligence, software development and digital products."
+  />
+
+  <section class="container blog-section">
+    <SectionHeader
+      eyebrow="ARTICLES"
+      title="Technical writing."
+      description="Practical notes from building technology, products and learning systems."
+    />
+
+    {
+      posts.length > 0 ? (
+        <div class="card-grid">
+          {posts.map((post) => (
+            <Card
+              category={post.data.category}
+              title={post.data.title}
+              description={post.data.description}
+              href={`/blog/${post.id}`}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="empty">
+          No articles published yet.
+        </p>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .blog-section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .empty {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 950px) {
+    .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 650px) {
+    .blog-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
