@@ -1,22 +1,161 @@
+---
+const currentPath = Astro.url.pathname;
+
+const isActive = (path: string) => {
+  if (path === "/") {
+    return currentPath === "/";
+  }
+
+  return (
+    currentPath === path ||
+    currentPath.startsWith(`${path}/`)
+  );
+};
+---
+
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="brand" aria-label="Ramya Devi home">
+    <a
+      href="/"
+      class="brand"
+      aria-label="Ramya Devi home"
+    >
       RAMYA DEVI
     </a>
 
     <nav aria-label="Main navigation">
-      <a href="/" class="active">Home</a>
-      <a href="/products">Products</a>
-      <a href="/courses">Courses</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
+      <a
+        href="/"
+        class:list={{ active: isActive("/") }}
+        aria-current={isActive("/") ? "page" : undefined}
+      >
+        Home
+      </a>
+
+      <a
+        href="/products"
+        class:list={{ active: isActive("/products") }}
+        aria-current={isActive("/products") ? "page" : undefined}
+      >
+        Products
+      </a>
+
+      <a
+        href="/courses"
+        class:list={{ active: isActive("/courses") }}
+        aria-current={isActive("/courses") ? "page" : undefined}
+      >
+        Courses
+      </a>
+
+      <a
+        href="/blog"
+        class:list={{ active: isActive("/blog") }}
+        aria-current={isActive("/blog") ? "page" : undefined}
+      >
+        Blog
+      </a>
+
+      <a
+        href="/about"
+        class:list={{ active: isActive("/about") }}
+        aria-current={isActive("/about") ? "page" : undefined}
+      >
+        About
+      </a>
     </nav>
 
-    <a href="/contact" class="header-button">
-      Contact
-    </a>
+    <div class="header-actions">
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        title="Switch to dark mode"
+      >
+        <!-- Sun -->
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+
+        <!-- Moon -->
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Contact -->
+      <a href="/contact" class="header-button">
+        Contact
+      </a>
+    </div>
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector(
+    "#theme-toggle"
+  ) as HTMLButtonElement | null;
+
+  if (toggle) {
+    const updateThemeButton = () => {
+      const isDark =
+        document.documentElement.dataset.theme === "dark";
+
+      toggle.setAttribute(
+        "aria-label",
+        isDark
+          ? "Switch to light mode"
+          : "Switch to dark mode"
+      );
+
+      toggle.setAttribute(
+        "title",
+        isDark
+          ? "Switch to light mode"
+          : "Switch to dark mode"
+      );
+    };
+
+    updateThemeButton();
+
+    toggle.addEventListener("click", () => {
+      const isDark =
+        document.documentElement.dataset.theme === "dark";
+
+      if (isDark) {
+        document.documentElement.removeAttribute(
+          "data-theme"
+        );
+
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.dataset.theme = "dark";
+
+        localStorage.setItem("theme", "dark");
+      }
+
+      updateThemeButton();
+    });
+  }
+</script>
 
 <style>
   .site-header {
@@ -26,11 +165,16 @@
 
     width: 100%;
 
-    background: rgba(255, 255, 255, 0.94);
+    background: var(--header-background);
+
     border-bottom: 1px solid var(--border);
 
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease;
   }
 
   .header-inner {
@@ -38,13 +182,19 @@
 
     display: flex;
     align-items: center;
+
     gap: 40px;
   }
+
+  /* =========================================
+     Brand
+     ========================================= */
 
   .brand {
     margin-right: auto;
 
     color: transparent;
+
     background: linear-gradient(
       90deg,
       #0066ff 0%,
@@ -61,12 +211,17 @@
 
     font-size: 25px;
     font-weight: 900;
+
     letter-spacing: -0.035em;
     line-height: 1;
 
     text-decoration: none;
     white-space: nowrap;
   }
+
+  /* =========================================
+     Navigation
+     ========================================= */
 
   nav {
     display: flex;
@@ -77,44 +232,144 @@
   nav a {
     position: relative;
 
-    color: var(--black);
+    color: var(--text);
+
     text-decoration: none;
 
     font-size: 14px;
     font-weight: 500;
 
-    transition: color 180ms ease;
+    transition:
+      color 180ms ease;
   }
 
-  nav a:hover,
+  nav a:hover {
+    color: var(--royal-blue);
+  }
+
+  /*
+   * Active page
+   */
+
   nav a.active {
     color: var(--royal-blue);
   }
+
+  /*
+   * Active page underline
+   */
 
   nav a.active::after {
     content: "";
 
     position: absolute;
+
     left: 0;
     right: 0;
+
     bottom: -29px;
 
     height: 2px;
+
     background: var(--royal-blue);
   }
 
-  .header-button {
+  /* =========================================
+     Header Actions
+     ========================================= */
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* =========================================
+     Theme Toggle
+     ========================================= */
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
+    padding: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--royal-blue);
+
+    color: var(--royal-blue);
+
+    transform: translateY(-1px);
+  }
+
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+
+  html[data-theme="dark"] .sun-icon {
+    display: none;
+  }
+
+  html[data-theme="dark"] .moon-icon {
+    display: block;
+  }
+
+  /* =========================================
+     Contact Button
+     ========================================= */
+
+  .header-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
     min-height: 40px;
+
     padding: 0 18px;
 
     border-radius: 8px;
 
     background: var(--black);
-    color: white;
+
+    color: var(--inverse-text);
 
     font-size: 13px;
     font-weight: 600;
@@ -128,8 +383,13 @@
 
   .header-button:hover {
     background: var(--royal-blue);
+
     transform: translateY(-1px);
   }
+
+  /* =========================================
+     Tablet
+     ========================================= */
 
   @media (max-width: 900px) {
     nav {
@@ -141,18 +401,24 @@
     }
   }
 
+  /* =========================================
+     Mobile
+     ========================================= */
+
   @media (max-width: 700px) {
     .header-inner {
       min-height: 70px;
 
       width: 100%;
+
       padding: 0 16px;
 
-      gap: 20px;
+      gap: 14px;
     }
 
     .brand {
       flex-shrink: 0;
+
       font-size: 22px;
     }
 
@@ -160,6 +426,7 @@
       display: flex;
 
       flex: 1;
+
       min-width: 0;
 
       overflow-x: auto;
@@ -182,6 +449,10 @@
 
     nav a.active::after {
       bottom: -25px;
+    }
+
+    .theme-toggle {
+      flex-shrink: 0;
     }
   }
 </style>
