@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import Card from "../../components/Card.astro";
+---
+
+<Layout
+  title="Courses | Ramya Devi"
+  description="Data Science, AI and software development courses by Ramya Devi."
+>
+  <PageHero
+    eyebrow="COURSES"
+    title="Practical learning for modern technology."
+    description="Courses covering data science, artificial intelligence, computer vision, generative AI and software development."
+  />
+
+  <section class="container courses-section">
+    <SectionHeader
+      eyebrow="LEARNING"
+      title="Learn by building."
+      description="Detailed courses and practical projects published through leading learning platforms."
+    />
+
+    <div class="card-grid">
+      <Card
+        category="Artificial Intelligence"
+        title="Intelligent Document Processing"
+        description="Build an end-to-end document intelligence system using vision models, structured extraction, Pydantic, MongoDB and FastAPI."
+        href="#"
+      />
+
+      <Card
+        category="Computer Vision"
+        title="Visual AI"
+        description="Learn modern computer vision using Transformers, YOLO, segmentation, vision-language models and video intelligence."
+        href="#"
+      />
+
+      <Card
+        category="Generative AI"
+        title="LLM Foundations"
+        description="Understand the foundations of large language models and build practical AI applications."
+        href="#"
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .courses-section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 950px) {
+    .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 650px) {
+    .courses-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

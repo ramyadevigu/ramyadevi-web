@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout
+  title="Products | Ramya Devi"
+  description="Digital products developed by Ramya Devi."
+>
+  <PageHero
+    eyebrow="PRODUCTS"
+    title="Digital products built for real-world use."
+    description="Practical software products designed around useful technology, intelligent systems and everyday problems."
+  />
+
+  <section class="container products-section">
+    <SectionHeader
+      eyebrow="PRODUCT PORTFOLIO"
+      title="Technology that becomes a product."
+      description="Explore products developed by Ramya Devi across productivity, AI and digital systems."
+    />
+
+    <div class="card-grid">
+      <Card
+        category="Productivity"
+        title="Paper File"
+        description="A personal and family document management system designed to organize, search and work with important documents."
+        href="#"
+      />
+
+      <Card
+        category="Technology"
+        title="Coming Soon"
+        description="More practical technology products are currently being developed."
+        href="#"
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .products-section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .products-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
