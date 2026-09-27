@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+<Layout
+  title="About | Ramya Devi"
+  description="About Ramya Devi — Data & Digital Systems."
+>
+  <PageHero
+    eyebrow="ABOUT"
+    title="Technology, products and practical learning."
+    description="Ramya Devi develops technology, digital products and practical learning systems across data, AI and software."
+  />
+
+  <section class="container content">
+    <p>
+      Ramya Devi is focused on building practical technology,
+      digital products and learning experiences.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .content {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .content p {
+    max-width: 760px;
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+</style>
