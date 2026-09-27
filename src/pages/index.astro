@@ -16,9 +16,9 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <h1>
-          Building
+          Building{" "}
           <span class="gradient-text">intelligent</span>
-          systems for the digital world.
+          {" "}systems for the digital world.
         </h1>
 
         <p class="hero-description">
@@ -845,7 +845,8 @@ import Layout from "../layouts/Layout.astro";
 
   @media (max-width: 900px) {
     .hero-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
     }
 
     .hero-content {
@@ -877,7 +878,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .hero-content {
-      padding: 70px 0 20px;
+      padding: 56px 0 0;
     }
 
     h1 {
@@ -897,7 +898,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .hero-visual {
-      max-width: 350px;
+      max-width: 280px;
 
       margin-bottom: 50px;
     }
