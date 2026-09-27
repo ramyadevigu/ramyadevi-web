@@ -1,11 +1,14 @@
 :root {
-  /* Ramya Devi Brand */
+  /* =========================================
+     Ramya Devi Brand
+     ========================================= */
+
   --black: #0b0f14;
   --royal-blue: #0066ff;
   --azure-blue: #008cff;
   --cyan-blue: #00aeef;
 
-  /* Gradient */
+  /* Brand Gradient */
   --orbital-gradient: linear-gradient(
     110deg,
     #0038b8 0%,
@@ -14,16 +17,62 @@
     #00aeef 100%
   );
 
-  /* UI */
+  /* =========================================
+     Light Theme
+     ========================================= */
+
   --background: #ffffff;
   --surface: #f7f9fc;
   --surface-blue: #f3f7ff;
+
   --border: #e5e9f0;
+
+  /* Typography */
   --text: #0b0f14;
   --text-muted: #5f6b7a;
 
+  /* Header */
+  --header-background: rgba(255, 255, 255, 0.94);
+
+  /* Text on dark surfaces */
+  --inverse-text: #ffffff;
+
+  /* =========================================
+     Layout
+     ========================================= */
+
   --container-width: 1240px;
 }
+
+/* =========================================
+   Dark Theme
+   ========================================= */
+
+html[data-theme="dark"] {
+  --background: #080c12;
+
+  --surface: #111923;
+
+  --surface-blue: #101b2b;
+
+  --border: rgba(255, 255, 255, 0.10);
+
+  /* Typography */
+  --text: #f4f7fb;
+  --text-muted: #a8b4c3;
+
+  /* Header */
+  --header-background: rgba(8, 12, 18, 0.94);
+
+  /* Inverse */
+  --inverse-text: #ffffff;
+
+  color-scheme: dark;
+}
+
+/* =========================================
+   Base
+   ========================================= */
 
 * {
   box-sizing: border-box;
@@ -32,12 +81,20 @@
 html {
   margin: 0;
   padding: 0;
+
   scroll-behavior: smooth;
+
+  background: var(--background);
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 body {
   margin: 0;
   padding: 0;
+
   min-width: 320px;
 
   background: var(--background);
@@ -51,10 +108,88 @@ body {
     sans-serif;
 
   -webkit-font-smoothing: antialiased;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
+
+/* =========================================
+   Global Typography
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+}
+
+p {
+  color: var(--text-muted);
+}
+
+small {
+  color: var(--text-muted);
+}
+
+/* =========================================
+   Global Dark Typography Override
+   ========================================= */
+
+/*
+ * Some existing Astro components contain
+ * hard-coded light-mode colors.
+ *
+ * These global rules ensure that all normal
+ * page headings and descriptions remain
+ * readable in dark mode.
+ */
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] p {
+  color: var(--text-muted) !important;
+}
+
+/*
+ * Labels and metadata should retain the
+ * Ramya Devi blue identity.
+ */
+
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .section-label,
+html[data-theme="dark"] .category {
+  color: var(--royal-blue) !important;
+}
+
+/* =========================================
+   Links
+   ========================================= */
 
 a {
   color: inherit;
+}
+
+a:hover {
+  color: var(--royal-blue);
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+
+button {
+  font-family: inherit;
 }
 
 button,
@@ -62,10 +197,22 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* =========================================
+   Container
+   ========================================= */
+
 .container {
-  width: min(calc(100% - 48px), var(--container-width));
+  width: min(
+    calc(100% - 48px),
+    var(--container-width)
+  );
+
   margin: 0 auto;
 }
+
+/* =========================================
+   Brand
+   ========================================= */
 
 .brand {
   font-family:
@@ -78,11 +225,12 @@ a {
 
   color: transparent;
 
-  background: linear-gradient(
-    90deg,
-    #0066ff 0%,
-    #00aeef 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #0066ff 0%,
+      #00aeef 100%
+    );
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -96,16 +244,18 @@ a {
 
   font-size: 22px;
   font-weight: 900;
+
   letter-spacing: -0.035em;
   line-height: 1;
 
   color: transparent;
 
-  background: linear-gradient(
-    90deg,
-    #0066ff 0%,
-    #00aeef 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #0066ff 0%,
+      #00aeef 100%
+    );
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -115,14 +265,77 @@ a {
   margin: 10px 0 0;
 
   color: #8d98a7;
-
   font-size: 13px;
 }
 
+/* =========================================
+   Global Dark Surfaces
+   ========================================= */
 
+html[data-theme="dark"] main {
+  background: var(--background);
+}
+
+/*
+ * Any generic white surface should become
+ * a proper dark surface in dark mode.
+ */
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .area-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+/* =========================================
+   Page Hero
+   ========================================= */
+
+/*
+ * Products, Courses, Blog and About all use
+ * the PageHero component.
+ */
+
+html[data-theme="dark"] .page-hero {
+  background:
+    radial-gradient(
+      circle at 82% 45%,
+      rgba(0, 140, 255, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #080c12 0%,
+      #0d1723 52%,
+      #08111b 100%
+    );
+}
+
+html[data-theme="dark"] .page-hero h1 {
+  color: #f4f7fb !important;
+}
+
+html[data-theme="dark"] .page-hero p {
+  color: #a8b4c3 !important;
+}
+
+/* =========================================
+   Borders
+   ========================================= */
+
+html[data-theme="dark"] hr {
+  border-color: var(--border);
+}
+
+/* =========================================
+   Mobile
+   ========================================= */
 
 @media (max-width: 700px) {
   .container {
-    width: min(calc(100% - 32px), var(--container-width));
+    width: min(
+      calc(100% - 32px),
+      var(--container-width)
+    );
   }
 }
